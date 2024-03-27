@@ -22,6 +22,7 @@
 \RequirePackage{multirow}
 \RequirePackage{tabularx}
 \RequirePackage{caption}
+\RequirePackage{textpos}
 \captionsetup[figure]{labelformat=empty}
 \RequirePackage[
     natbib=true,
@@ -194,3 +195,9 @@
     \bgroup}{\egroup;
     \end{tikzpicture}
 }
+
+% \newcommand{\citeBlock}[1]{%
+%     \begin{textblock*}{150pt}(200pt, 244pt)
+%         \tiny #1
+%     \end{textblock*}
+% }
