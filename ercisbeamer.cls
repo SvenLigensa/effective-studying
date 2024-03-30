@@ -196,8 +196,52 @@
     \end{tikzpicture}
 }
 
-% \newcommand{\citeBlock}[1]{%
-%     \begin{textblock*}{150pt}(200pt, 244pt)
-%         \tiny #1
-%     \end{textblock*}
-% }
+% #### Commands to automatically generate outline
+\newcounter{itemnumber}% Counter keeping track of item numbers
+% Automatically decide whether to use \positive
+\newcommand{\autoitem}[1]{%
+    \stepcounter{itemnumber}% Increase counter
+    \ifnum\value{itemnumber}>\the\value{chapterthreshold}
+        \ifnum\value{itemnumber}=\numexpr\the\value{chapterthreshold}+1\relax
+            Next: \red{#1}
+        \else
+            \grey{#1}
+        \fi
+    \else
+        \positive{#1}
+    \fi
+}
+% Define your custom command for the frame structure
+\newcommand{\chapteroverview}[1]{%
+    \setcounter{itemnumber}{0}% Reset counter
+    \newcounter{chapterthreshold}% Define threshold counter
+    \setcounter{chapterthreshold}{#1}% Set threshold to argument value
+    \section*{Outlook}
+    \begin{frame}{Outlook}
+        \begin{table}
+        \centering
+        \begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+            \begin{enumerate}
+                \item \autoitem{Introduction}
+                \vspace{.5em}
+                \item \autoitem{Illusions of Knowing}
+                \item \autoitem{Understanding the Brain}
+                \item \autoitem{Learning}
+                \item \autoitem{Desirable Difficulties}
+                \item \autoitem{Effective vs. Ineffective Learning Strategies}
+            \end{enumerate}
+            &% Next column
+            \begin{enumerate}
+                \setcounter{enumi}{6}% Continue numbering from 7
+                \item \autoitem{Retrieval}
+                \item \autoitem{Spacing}
+                \item \autoitem{Variation and Interleaving}
+                \item \autoitem{Mental Models}
+                \item \autoitem{Memory Cues}
+                \vspace{.5em}
+                \item \autoitem{Enhancing Common Study Strategies}
+            \end{enumerate}
+        \end{tabular}
+        \end{table}
+    \end{frame}
+}
