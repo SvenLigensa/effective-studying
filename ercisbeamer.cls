@@ -228,7 +228,7 @@
                 \item \autoitem{Understanding the Brain}
                 \item \autoitem{Learning}
                 \item \autoitem{Desirable Difficulties}
-                \item \autoitem{Effective vs. Ineffective Learning Strategies}
+                \item \autoitem{Effective vs. Ineffective Strategies}
             \end{enumerate}
             &% Next column
             \begin{enumerate}
